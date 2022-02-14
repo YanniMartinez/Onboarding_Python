@@ -18,7 +18,7 @@ Crea un entorno virtual mediante ``venv``
     ``
     Ahora tienes un directorio (folder) ``env`` creado en tu terminal.
 
-    <div><img src="modulo2Kata/img/venv.png" /></div>
+    <div><img src="Modulo2Kata/img/venv.png" /></div>
 
 * Ejecuta el comando para activar el entorno virtual: ``source env/bin/activate``
 
@@ -34,7 +34,7 @@ Crea un entorno virtual mediante ``venv``
     source env/bin/activate
     ```
 
-    <div><img src="modulo2Kata/img/activate.png" /></div>
+    <div><img src="Modulo2Kata/img/activate.png" /></div>
 
 Ahora ves en tu terminal ``(env)``. Eso significa que has activado tu entorno virtual y se ha aislado del resto de tu máquina.
 
@@ -52,7 +52,7 @@ Ahora que estás dentro de tu entorno virtual, puedes instalar una biblioteca y 
 
     No deberías obtener respuesta. A continuación, veamos cómo cambia la salida de ``pip freeze`` cuando se agrega una biblioteca (un paquete).
 
-    <div><img src="modulo2Kata/img/pipFreeze1.png" /></div>
+    <div><img src="Modulo2Kata/img/pipFreeze1.png" /></div>
 
 * Ejecuta el comando ``pip install`` para instalar una biblioteca:
    ```
@@ -65,7 +65,7 @@ Ahora que estás dentro de tu entorno virtual, puedes instalar una biblioteca y 
     Successfully installed python-dateutil-2.8.2 six-1.16.0
     ```
 
-    <div><img src="modulo2Kata/img/dateUtil.png" /></div>
+    <div><img src="Modulo2Kata/img/dateUtil.png" /></div>
 
 * Vuelve a ejecutar ```pip freeze``` para ver cómo ha cambiado tu lista de bibliotecas:
     ```
@@ -78,7 +78,7 @@ Ahora que estás dentro de tu entorno virtual, puedes instalar una biblioteca y 
     six==1.16.0
     ```
 
-    <div><img src="modulo2Kata/img/pipFreeze2.png" /></div>
+    <div><img src="Modulo2Kata/img/pipFreeze2.png" /></div>
 
 ### Desactivar un entorno virtual
 
@@ -91,7 +91,7 @@ deactivate
 
 Observa cómo cambia el mensaje de tu terminal ``(env)`` a cómo se veía antes.
 
-<div><img src="modulo2Kata/img/deactivate.png" /></div>
+<div><img src="Modulo2Kata/img/deactivate.png" /></div>
 
 Resumen del listado de comandos:
 
