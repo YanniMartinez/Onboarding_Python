@@ -51,6 +51,10 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+* Ejemplo de implementación:
+<div><img src='img/file.png'></div>
+
 Se trata de una sola función `main()` que abre el archivo inexistente, como antes. Al final, esta función usa un asistente de Python que indica al intérprete que ejecute la función `main()` cuando se le llama en el terminal. Ejecútala con Python y podrás comprobar el siguiente mensaje de error:
 ```
 $ python3 open.py
@@ -62,6 +66,9 @@ Traceback (most recent call last):
 FileNotFoundError: [Errno 2] No such file or directory: '/path/to/mars.jpg'
 ```
 La salida de error tiene más sentido ahora. Las rutas de acceso apuntan a un único archivo denominado *open.py*. La salida menciona que el error se inicia en la línea 5, que incluye la llamada a `main()`. A continuación, la salida sigue el error a la línea 2 en la llamada de función `open()`. Y, por último, `FileNotFoundError` notifica de nuevo que el archivo o el directorio no existen.
+
+* Ejecución del problema:
+<div><img src='img/console.png'></div>
 
 Los tracebacks casi siempre incluyen la información siguiente:
 
@@ -105,6 +112,10 @@ def main():
 if __name__ == '__main__':
     main()
 ```
+
+* Ejecución del problema:
+<div><img src='img/config.png'></div>
+
 A continuación, quita,ps el archivo *config.txt* y creamos un directorio denominado *config.txt*. Intentaremos llamar al archivo *config.py* para ver un error nuevo que debería ser similar al siguiente:
 ```
 $ python config.py
@@ -115,6 +126,11 @@ Traceback (most recent call last):
     configuration = open('config.txt')
 IsADirectoryError: [Errno 21] Is a directory: 'config.txt'
 ```
+
+
+* Ejecución en consola:
+<div><img src='img/config3.png'></div>
+
 Una manera poco útil de controlar este error sería detectar todas las excepciones posibles para evitar un traceback. Para comprender por qué detectar todas las excepciones es problemático, probaremos actualizando la función `main()`:
 ```
 def main():
@@ -124,11 +140,15 @@ def main():
         print("Couldn't find the config.txt file!")
 ```
 
+* Ejecución en consola:
+<div><img src='img/config2.png'></div>
+
 Ahora volvemos a ejecutar el código en el mismo lugar donde existe el archivo *config.txt* con permisos incorrectos:
 ```
 $ python config.py
 Couldn't find the config.txt file!
 ```
+
 El problema ahora es que el mensaje de error es incorrecto. El archivo existe, pero tiene permisos diferentes y Python no puede leerlo. Cuando se trata con errores de software, puede resultar frustrante tener errores que hagan lo siguiente:
 
 * No indiquen cuál es el problema real.
@@ -147,6 +167,8 @@ def main():
         print("Found config.txt but it is a directory, couldn't read it")
 ```
 
+<div><img src="permisionError.png"/></div>
+
 Ahora volvemos a ejecutarlo, en el mismo lugar donde *config.txt* está con el problema de permisos:
 
 ```
@@ -159,6 +181,7 @@ $ rm -f config.txt
 $ python config.py
 Couldn't find the config.txt file!
 ```
+
 Cuando los errores son de una naturaleza similar y no es necesario controlarlos individualmente, puedes agrupar las excepciones como una usando paréntesis en la línea `except`. Por ejemplo, si el sistema de navegación está bajo cargas pesadas y el sistema de archivos está demasiado ocupado, tiene sentido detectar `BlockingIOError` y `TimeOutError` juntos:
 
 ```
@@ -172,6 +195,9 @@ def main():
     except (BlockingIOError, TimeoutError):
         print("Filesystem under heavy load, can't complete reading configuration file")
 ```
+
+<div><img src="config4.png"/></div>
+
 **Sugerencia**
 
 Aunque puedes agrupar excepciones, solo debes hacerlo cuando no sea necesario controlarlas individualmente. Evita agrupar muchas excepciones para proporcionar un mensaje de error generalizado.
@@ -292,6 +318,8 @@ Traceback (most recent call last):
   File "<stdin>", line 9, in water_left
 TypeError: All arguments must be of type int, but received: '3'
 ```
+
+<div><img src="astronautas.png"/></div>
 
 ## Resumen
 Para ser un desarrollador eficaz, debes saber cómo funcionan las excepciones y cómo controlarlas. En este módulo, has descubierto cómo usar la salida de excepción para la depuración, cómo detectar y generar excepciones y, por último, cómo afecta a la lógica de un programa cuando se producen excepciones.
